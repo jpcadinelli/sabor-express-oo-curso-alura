@@ -4,7 +4,12 @@ class Restaurante:
     ativo = False
 
 restaurante_praca = Restaurante()
+restaurante_praca.nome = 'Praça'
+restaurante_praca.categoria = 'Gourmet'
+
 restaurante_pizza = Restaurante()
+restaurante_pizza.nome = 'Pizza'
+restaurante_pizza.categoria = 'Italiana'
 
 restaurantes = [
     restaurante_praca,
