@@ -32,16 +32,21 @@ class Restaurante:
         if 0 <= nota <= 5:
             avaliacao = Avaliacao(cliente, nota)
             self._avaliacao.append(avaliacao)
-    
-    # def adicionar_bebida_no_cardapio(self, bebida):
-    #     self._cardapio.append(bebida)
-    
-    # def adicionar_prato_no_cardapio(self, prato):
-    #     self._cardapio.append(prato)
             
     def adicionar_no_cardapio(self, item):
         if isinstance(item, ItemCardapio):
             self._cardapio.append(item)
+    
+    @property
+    def exibir_cardapio(self):
+        print(f'Cardápio do restaurante {self._nome}\n')
+        for i, item in enumerate(self._cardapio, start=1):
+            if hasattr(item, '_descricao'):
+                mensagem_prato = f'{i}. Nome: {item._nome} | Preço: R${item._preco} | Descrição: {item._descricao}'
+                print(mensagem_prato)
+            else:
+                mensagem_bebida = f'{i}. Nome: {item._nome} | Preço: R${item._preco} | Tamanho: {item._tamanho}'
+                print(mensagem_bebida)
 
     @property
     def media_avaliacoes(self):
